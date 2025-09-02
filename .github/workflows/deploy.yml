@@ -20,18 +20,18 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: angular-docs/applicacion
+        working-directory: applicacion
 
       - name: Generate folders.json
         run: node generate-folders.js
-        working-directory: angular-docs/applicacion
+        working-directory: applicacion
 
       - name: Build Angular app
         run: npm run build -- --output-path=docs
-        working-directory: angular-docs/applicacion
+        working-directory: applicacion
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./angular-docs/applicacion/docs
+          publish_dir: ./applicacion/docs
