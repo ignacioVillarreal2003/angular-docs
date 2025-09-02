@@ -1,6 +1,6 @@
 ---
-title: "Redes Neuronales"
-description: "Ejemplo de documento con código, imágenes y matemáticas"
+title: "Redes Neuronales 2"
+subtitle: "Ejemplo de documento con código, imágenes y matemáticas"
 ---
 
 # Introducción

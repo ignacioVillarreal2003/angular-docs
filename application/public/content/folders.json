@@ -2,28 +2,32 @@
   "folders": [
     {
       "id": "ia",
-      "title": "Inteligencia Artificial",
+      "title": "ia",
       "path": "ia",
       "folders": [
         {
           "id": "ml",
-          "title": "Machine Learning",
+          "title": "ml",
           "path": "ia/ml",
-          "main": "_index.md",
+          "folders": [],
           "documents": [
-            { "id": "doc1", "title": "Introducción", "path": "ia/ml/doc1.md" }
+            {
+              "id": "history",
+              "title": "Redes Neuronales 2",
+              "subtitle": "Ejemplo de documento con código, imágenes y matemáticas",
+              "path": "ia/ml/history.md"
+            },
+            {
+              "id": "intro",
+              "title": "Redes Neuronales",
+              "subtitle": "Ejemplo de documento con código, imágenes y matemáticas",
+              "path": "ia/ml/intro.md"
+            }
           ]
         }
       ],
-      "documents": [
-        {
-          "id": "doc2",
-          "title": "Resumen IA",
-          "subtitle": "Machine Learning",
-          "date": "Aug 24, 2023",
-          "path": "ia/doc2.md"
-        }
-      ]
+      "documents": []
     }
-  ]
+  ],
+  "documents": []
 }
