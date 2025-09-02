@@ -1,0 +1,11 @@
+@if (folder != undefined) {
+  <section class="folder-page">
+    <header>
+      <h1>{{ folder.title }}</h1>
+      <span>asdasd/asdas/dasd/asd asdasdas</span>
+    </header>
+    <app-folder-list [folders]="folder.folders"></app-folder-list>
+    <app-document-list [documents]="folder.documents"></app-document-list>
+  </section>
+
+}

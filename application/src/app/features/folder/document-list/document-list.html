@@ -1,0 +1,10 @@
+@if (documents != undefined) {
+  <section class="document-list">
+    <ul>
+      @for (document of documents; track document.id) {
+        <app-document-item [document]="document"></app-document-item>
+      }
+    </ul>
+  </section>
+}
+

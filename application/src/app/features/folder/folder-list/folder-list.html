@@ -1,0 +1,11 @@
+@if (folders != undefined) {
+  <section class="folder-list">
+    <ul>
+      @for (folder of folders; track folder.id) {
+        <app-folder-item [folder]="folder"></app-folder-item>
+      }
+    </ul>
+  </section>
+}
+
+

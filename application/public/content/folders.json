@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "id": "ia",
+      "title": "Inteligencia Artificial",
+      "path": "ia",
+      "folders": [
+        {
+          "id": "ml",
+          "title": "Machine Learning",
+          "path": "ia/ml",
+          "main": "_index.md",
+          "documents": [
+            { "id": "doc1", "title": "Introducción", "path": "ia/ml/doc1.md" }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "id": "doc2",
+          "title": "Resumen IA",
+          "subtitle": "Machine Learning",
+          "date": "Aug 24, 2023",
+          "path": "ia/doc2.md"
+        }
+      ]
+    }
+  ]
+}
