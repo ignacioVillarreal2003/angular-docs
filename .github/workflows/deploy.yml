@@ -17,24 +17,24 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-          
-      - name: List files
+
+      - name: List files (debug)
         run: ls -R
-        
+
       - name: Install dependencies
         run: npm install
-        working-directory: aplicacion
+        working-directory: application
 
       - name: Generate folders.json
         run: node generate-folders.js
-        working-directory: aplicacion
+        working-directory: application
 
       - name: Build Angular app
         run: npm run build -- --output-path=docs
-        working-directory: aplicacion
+        working-directory: application
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./aplicacion/docs
+          publish_dir: ./application/docs
