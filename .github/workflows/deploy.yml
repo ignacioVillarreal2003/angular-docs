@@ -3,7 +3,7 @@ name: Deploy Angular + folders.json to GitHub Pages
 on:
   push:
     branches:
-      - main  # Cambiar si tu rama principal es otra
+      - main
 
 jobs:
   build-and-deploy:
@@ -20,18 +20,18 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: applicacion
+        working-directory: aplicacion
 
       - name: Generate folders.json
         run: node generate-folders.js
-        working-directory: applicacion
+        working-directory: aplicacion
 
       - name: Build Angular app
         run: npm run build -- --output-path=docs
-        working-directory: applicacion
+        working-directory: aplicacion
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./applicacion/docs
+          publish_dir: ./aplicacion/docs
