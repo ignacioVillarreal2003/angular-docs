@@ -31,12 +31,17 @@
               {
                 "glob": "**/*",
                 "input": "node_modules/katex/dist/fonts",
-                "output": "assets/fonts"
+                "output": "public/fonts"
               }
             ],
             "styles": [
               "src/styles.scss"
-            ]
+            ],
+            "loader": {
+              ".woff": "file",
+              ".woff2": "file",
+              ".ttf": "file"
+            }
           },
           "configurations": {
             "production": {
