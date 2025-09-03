@@ -19,7 +19,9 @@ export class MarkdownService {
   }
 
   loadDoc(path: string): Observable<MarkdownDoc> {
-    return this.http.get(`content/${path}`, {responseType: 'text'}).pipe(
+    // Usar base href para rutas correctas en producción
+    const fullPath = this.base.endsWith('/') ? `${this.base}content/${path}` : `${this.base}/content/${path}`;
+    return this.http.get(fullPath, {responseType: 'text'}).pipe(
       map(raw => {
         let metadata: any = {};
         let content = raw;
