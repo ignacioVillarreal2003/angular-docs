@@ -19,7 +19,7 @@ export class MarkdownService {
   }
 
   loadDoc(path: string): Observable<MarkdownDoc> {
-    return this.http.get(`${this.base}/content/${path}`, {responseType: 'text'}).pipe(
+    return this.http.get(`${this.base}content/${path}`, {responseType: 'text'}).pipe(
       map(raw => {
         let metadata: any = {};
         let content = raw;
