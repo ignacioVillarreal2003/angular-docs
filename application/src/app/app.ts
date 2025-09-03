@@ -17,6 +17,6 @@ export class App {
   ngOnInit() {
     this.http.get<RootFolder>('content/history.md').subscribe((data) => {
       console.log(data);
-    }
+    });
   }
 }
