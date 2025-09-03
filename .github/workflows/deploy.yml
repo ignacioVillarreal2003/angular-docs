@@ -37,7 +37,7 @@ jobs:
         working-directory: application
 
       - name: Build Angular app
-        run: npm run build -- --output-path=dist/browser --base-href /angular-docs/
+        run: npm run build -- --base-href /angular-docs/
         working-directory: application
 
       - name: Configure Pages
@@ -46,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: application/dist/browser
+          path: application/dist/angular-docs/browser
 
   deploy:
     needs: build
