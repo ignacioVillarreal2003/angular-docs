@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FolderList} from '../../folder/folder-list/folder-list';
 import {FolderService} from '../../../core/services/folder-service';
 import {RootFolder} from '../../../core/models/root-folder';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home-page',
@@ -14,13 +15,19 @@ import {RootFolder} from '../../../core/models/root-folder';
 export class HomePage {
   rootFolder: RootFolder | undefined;
 
-  constructor(private folderService: FolderService) {}
+  constructor(private folderService: FolderService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.folderService.loadFolders().subscribe((rootFolder: RootFolder): void => {
       console.log("agarra el json");
       
       console.log(rootFolder);
+
+      this.http.get<RootFolder>('content/history.md').subscribe((data) => {
+        console.log("agarra el md");
+        
+        console.log(data);
+      });
       this.rootFolder = rootFolder;
     });
   }
