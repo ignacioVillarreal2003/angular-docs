@@ -37,7 +37,7 @@ jobs:
         working-directory: application
 
       - name: Build Angular app
-        run: npm run build -- --output-path=dist
+        run: npm run build -- --output-path=dist/browser --base-href /angular-docs/
         working-directory: application
 
       - name: Configure Pages
