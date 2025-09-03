@@ -1,0 +1,40 @@
+{
+  "folders": [
+    {
+      "id": "ia",
+      "title": "ia",
+      "path": "ia",
+      "folders": [
+        {
+          "id": "ml",
+          "title": "ml",
+          "path": "ia/ml",
+          "folders": [],
+          "documents": [
+            {
+              "id": "history",
+              "title": "Redes Neuronales 2",
+              "subtitle": "Ejemplo de documento con código, imágenes y matemáticas",
+              "path": "ia/ml/history.md"
+            },
+            {
+              "id": "intro",
+              "title": "Redes Neuronales",
+              "subtitle": "Ejemplo de documento con código, imágenes y matemáticas",
+              "path": "ia/ml/intro.md"
+            }
+          ]
+        }
+      ],
+      "documents": []
+    }
+  ],
+  "documents": [
+    {
+      "id": "history",
+      "title": "Redes Neuronales 2",
+      "subtitle": "Ejemplo de documento con código, imágenes y matemáticas",
+      "path": "history.md"
+    }
+  ]
+}
