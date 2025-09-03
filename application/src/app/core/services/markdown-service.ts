@@ -15,7 +15,7 @@ export class MarkdownService {
   constructor(private http: HttpClient) {}
 
   loadDoc(path: string): Observable<MarkdownDoc> {
-    return this.http.get(`content/${path}`, {responseType: 'text'}).pipe(
+    return this.http.get(`/angular-docs/content/${path}`, {responseType: 'text'}).pipe(
       map(raw => {
         let metadata: any = {};
         let content = raw;
