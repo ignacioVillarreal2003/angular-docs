@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
 
 export interface MarkdownDoc {
   metadata: any;
@@ -11,11 +12,14 @@ export interface MarkdownDoc {
   providedIn: 'root'
 })
 export class MarkdownService {
+  base: string = "";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) {
+    this.base = this.document.getElementsByTagName('base')[0].href;
+  }
 
   loadDoc(path: string): Observable<MarkdownDoc> {
-    return this.http.get(`/angular-docs/content/${path}`, {responseType: 'text'}).pipe(
+    return this.http.get(`${this.base}/content/${path}`, {responseType: 'text'}).pipe(
       map(raw => {
         let metadata: any = {};
         let content = raw;
