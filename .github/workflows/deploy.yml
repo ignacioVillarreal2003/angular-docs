@@ -29,10 +29,10 @@ jobs:
         run: node generate-folders.js
         working-directory: application
 
-      # 👇 Podés omitir este paso porque ng deploy ya hace el build
-      # - name: Build Angular app
-      #   run: npm run build:prod
-      #   working-directory: application
+      - name: Configure Git identity
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
 
       - name: Deploy with Angular CLI
         run: npx ng deploy --base-href=/angular-docs/ --no-silent
