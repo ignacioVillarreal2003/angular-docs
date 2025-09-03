@@ -18,6 +18,9 @@ export class HomePage {
 
   ngOnInit(): void {
     this.folderService.loadFolders().subscribe((rootFolder: RootFolder): void => {
+      console.log("agarra el json");
+      
+      console.log(rootFolder);
       this.rootFolder = rootFolder;
     });
   }

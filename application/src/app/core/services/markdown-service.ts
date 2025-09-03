@@ -12,16 +12,12 @@ export interface MarkdownDoc {
   providedIn: 'root'
 })
 export class MarkdownService {
-  base: string = "";
 
-  constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) {
-    this.base = this.document.getElementsByTagName('base')[0].href;
+  constructor(private http: HttpClient) {
   }
 
   loadDoc(path: string): Observable<MarkdownDoc> {
-    // Usar base href para rutas correctas en producción
-    const fullPath = this.base.endsWith('/') ? `${this.base}content/${path}` : `${this.base}/content/${path}`;
-    return this.http.get(fullPath, {responseType: 'text'}).pipe(
+    return this.http.get(`content/ia/ml/history.md`, {responseType: 'text'}).pipe(
       map(raw => {
         let metadata: any = {};
         let content = raw;
