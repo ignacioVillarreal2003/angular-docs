@@ -1,3 +1,9 @@
-<h1>{{ metadata?.title }}</h1>
-<p>{{ metadata?.description }}</p>
-<app-markdown-viewer [markdownContent]="content"></app-markdown-viewer>
+@if (markdownContent != undefined && metadata != undefined) {
+  <div class="document-page">
+    <app-document-header [title]="metadata.title"
+                         [subtitle]="metadata.subtitle"
+                         [date]="metadata.date"></app-document-header>
+
+    <app-document-content [markdownContent]="markdownContent"></app-document-content>
+  </div>
+}

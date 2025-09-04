@@ -2,11 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
-
-export interface MarkdownDoc {
-  metadata: any;
-  content: string;
-}
+import {MarkdownDocument} from '../models/markdown-document';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +12,7 @@ export class MarkdownService {
   constructor(private http: HttpClient) {
   }
 
-  loadDoc(path: string): Observable<MarkdownDoc> {
+  loadDoc(path: string): Observable<MarkdownDocument> {
     return this.http.get(`content/${path}`, {responseType: 'text'}).pipe(
       map(raw => {
         let metadata: any = {};

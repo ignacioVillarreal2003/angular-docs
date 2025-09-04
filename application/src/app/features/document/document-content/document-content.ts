@@ -5,29 +5,29 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-python.js';
 
 @Component({
-  selector: 'app-markdown-viewer',
+  selector: 'app-document-content',
   imports: [],
-  templateUrl: './markdown-viewer.html',
-  styleUrl: './markdown-viewer.scss'
+  templateUrl: './document-content.html',
+  styleUrl: './document-content.scss'
 })
-export class MarkdownViewer {
-  @Input() markdownContent!: string;
-  htmlContent = '';
+export class DocumentContent {
+  @Input() markdownContent: string | undefined;
+  htmlContent: string | undefined;
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['markdownContent'] && this.markdownContent) {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.markdownContent != undefined && changes['markdownContent']) {
       this.renderMarkdown(this.markdownContent);
     }
   }
 
-  private renderMarkdown(md: string) {
+  private renderMarkdown(markdownContent: string): void {
     // Render KaTeX for block math
-    md = md.replace(/\$\$(.*?)\$\$/gs, (_, expr) =>
+    markdownContent = markdownContent.replace(/\$\$(.*?)\$\$/gs, (_, expr) =>
       katex.renderToString(expr, { throwOnError: false, displayMode: true })
     );
 
     // Render KaTeX for inline math
-    md = md.replace(/\$(.*?)\$/g, (_, expr) =>
+    markdownContent = markdownContent.replace(/\$(.*?)\$/g, (_, expr) =>
       katex.renderToString(expr, { throwOnError: false, displayMode: false })
     );
 
@@ -42,7 +42,7 @@ export class MarkdownViewer {
       return `<pre class="language-${language}"><code>${html}</code></pre>`;
     };
 
-    this.htmlContent = marked.parse(md, {
+    this.htmlContent = marked.parse(markdownContent, {
       renderer: renderer,
       gfm: true,
       breaks: true

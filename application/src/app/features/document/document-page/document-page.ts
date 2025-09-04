@@ -1,26 +1,39 @@
-import {MarkdownViewer} from '../markdown-viewer/markdown-viewer';
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {MarkdownService} from '../../../core/services/markdown-service';
+import {Metadata} from '../../../core/models/metadata';
+import {MarkdownDocument} from '../../../core/models/markdown-document';
+import {DocumentHeader} from '../document-header/document-header';
+import {DocumentContent} from '../document-content/document-content';
 
 @Component({
   selector: 'app-document-page',
-  imports: [MarkdownViewer],
+  imports: [
+    DocumentHeader,
+    DocumentContent
+  ],
   templateUrl: './document-page.html',
   styleUrl: './document-page.scss'
 })
 export class DocumentPage {
-  content = '';
-  metadata: any;
+  markdownContent: string | undefined;
+  metadata: Metadata | undefined;
 
-  constructor(private route: ActivatedRoute, private mdService: MarkdownService) {}
+  constructor(private route: ActivatedRoute,
+              private mdService: MarkdownService) {}
 
-  ngOnInit() {        
-    const fullPath = this.route.snapshot.url[0].path
-    if (fullPath) {
-      this.mdService.loadDoc(fullPath).subscribe(doc => {
-        this.content = doc.content;
-        this.metadata = doc.metadata;
+  ngOnInit(): void {
+    this.getDataFromMarkdown();
+  }
+
+  getDataFromMarkdown(): void {
+    const documentPath: string = this.route.snapshot.url[0].path;
+    if (documentPath != undefined) {
+      this.mdService.loadDoc(documentPath).subscribe({
+        next: (data: MarkdownDocument): void => {
+          this.markdownContent = data.content;
+          this.metadata = data.metadata;
+        }
       });
     }
   }

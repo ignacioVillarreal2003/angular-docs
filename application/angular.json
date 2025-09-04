@@ -28,11 +28,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/katex/dist/fonts",
+                "output": "/assets/katex/fonts"
               }
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/prismjs/themes/prism.css",
+              "node_modules/prismjs/themes/prism-okaidia.css",
               "node_modules/katex/dist/katex.min.css"
             ],
             "loader": {
