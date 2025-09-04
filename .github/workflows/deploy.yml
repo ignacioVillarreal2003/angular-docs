@@ -35,7 +35,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
 
       - name: Deploy with Angular CLI
-        run: npx ng deploy --no-silent
+        run: npx ng deploy --base-href=/angular-docs/ --no-silent
         working-directory: application
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
