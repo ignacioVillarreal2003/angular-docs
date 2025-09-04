@@ -26,8 +26,8 @@
               "documents": [
                 {
                   "id": "1. El panorama del Machine Learning",
-                  "title": "1. El panorama del Machine Learning",
-                  "subtitle": "",
+                  "title": "El panorama del Machine Learning",
+                  "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor error harum neque quis tempora? Dolore eius sequi vitae. Aut, laudantium.",
                   "path": "ia/books/1. Aprendizaje automático práctico con Scikit-Learn, Keras y TensorFlow/1. El panorama del Machine Learning.md"
                 }
               ]
