@@ -31,7 +31,9 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/prismjs/themes/prism.css",
+              "node_modules/katex/dist/katex.min.css"
             ],
             "loader": {
               ".woff": "file",

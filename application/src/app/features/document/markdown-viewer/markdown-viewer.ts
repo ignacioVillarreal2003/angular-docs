@@ -33,18 +33,6 @@ export class MarkdownViewer {
       katex.renderToString(expr, { throwOnError: false, displayMode: false })
     );
 
-    // Alternative approach using extensions (if the above doesn't work)
-    // marked.use({
-    //   renderer: {
-    //     code(code: string, infostring?: string) {
-    //       const lang = infostring?.toLowerCase() || 'javascript';
-    //       const prismLang = Prism.languages[lang] || Prism.languages['javascript'];
-    //       const html = Prism.highlight(code, prismLang, lang);
-    //       return `<pre class="language-${lang}"><code>${html}</code></pre>`;
-    //     }
-    //   }
-    // });
-
     // Create a custom renderer that extends the default one
     const renderer = new marked.Renderer();
 
