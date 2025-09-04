@@ -6,24 +6,26 @@
       "path": "ia",
       "folders": [
         {
-          "id": "ml",
-          "title": "ml",
-          "path": "ia/ml",
-          "folders": [],
-          "documents": [
+          "id": "books",
+          "title": "books",
+          "path": "ia/books",
+          "folders": [
             {
-              "id": "history",
-              "title": "Redes Neuronales 2",
-              "subtitle": "Ejemplo de documento con código, imágenes y matemáticas",
-              "path": "ia/ml/history.md"
-            },
-            {
-              "id": "intro",
-              "title": "Redes Neuronales",
-              "subtitle": "Ejemplo de documento con código, imágenes y matemáticas",
-              "path": "ia/ml/intro.md"
+              "id": "1. Aprendizaje automático práctico con Scikit-Learn, Keras y TensorFlow",
+              "title": "1. Aprendizaje automático práctico con Scikit-Learn, Keras y TensorFlow",
+              "path": "ia/books/1. Aprendizaje automático práctico con Scikit-Learn, Keras y TensorFlow",
+              "folders": [],
+              "documents": [
+                {
+                  "id": "1. El panorama del Machine Learning",
+                  "title": "1. El panorama del Machine Learning",
+                  "subtitle": "",
+                  "path": "ia/books/1. Aprendizaje automático práctico con Scikit-Learn, Keras y TensorFlow/1. El panorama del Machine Learning.md"
+                }
+              ]
             }
-          ]
+          ],
+          "documents": []
         }
       ],
       "documents": []

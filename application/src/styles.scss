@@ -15,3 +15,59 @@ body {
   font-variation-settings:
     "wdth" 100;
 }
+
+.markdown-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.markdown-body h1 {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.markdown-body h2 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.markdown-body h3 {
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.markdown-body h4 {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.markdown-body p {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.markdown-body ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.markdown-body li {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.markdown-body hr {
+  border-width: 2px;
+  background-color: black;
+}
+
+.markdown-body blockquote {
+  border-left: rgb(47, 47, 218) 4px solid;
+  padding: 10px;
+  background-color: rgba(47, 47, 218, 0.1);
+  p {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+}
