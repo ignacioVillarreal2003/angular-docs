@@ -17,8 +17,6 @@ export class DocumentPage {
 
   ngOnInit() {        
     const fullPath = this.route.snapshot.url[0].path
-    console.log(fullPath);
-
     if (fullPath) {
       this.mdService.loadDoc(fullPath).subscribe(doc => {
         this.content = doc.content;

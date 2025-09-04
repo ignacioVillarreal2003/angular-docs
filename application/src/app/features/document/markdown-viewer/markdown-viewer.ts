@@ -1,10 +1,8 @@
-import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, SimpleChanges} from '@angular/core';
 import { marked } from 'marked';
 import katex from 'katex';
-import 'katex/dist/katex.min.css';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python.js';
-import 'prismjs/themes/prism.css';
 
 @Component({
   selector: 'app-markdown-viewer',
