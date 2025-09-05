@@ -1,0 +1,11 @@
+.folder-list {
+  width: 100%;
+  padding: 10px;
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

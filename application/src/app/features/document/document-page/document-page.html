@@ -1,9 +1,10 @@
 @if (markdownContent != undefined && metadata != undefined) {
   <div class="document-page">
-    <app-document-header [title]="metadata.title"
+    <div class="container">
+      <app-document-header [title]="metadata.title"
                          [subtitle]="metadata.subtitle"
                          [date]="metadata.date"></app-document-header>
-
-    <app-document-content [markdownContent]="markdownContent"></app-document-content>
+      <app-document-content [markdownContent]="markdownContent"></app-document-content>
+    </div>
   </div>
 }
