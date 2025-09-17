@@ -21,6 +21,13 @@ export class DocumentContent {
   }
 
   private renderMarkdown(markdownContent: string): void {
+    markdownContent = markdownContent.replace(
+      /\[\[note\]\]([\s\S]*?)\[\[\/note\]\]/g,
+      (_, inner) => {
+        return `<div class="note">${inner.trim()}</div>`;
+      }
+    );
+
     // Render KaTeX for block math
     markdownContent = markdownContent.replace(/\$\$(.*?)\$\$/gs, (_, expr) =>
       katex.renderToString(expr, { throwOnError: false, displayMode: true })
