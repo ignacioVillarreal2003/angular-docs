@@ -3,7 +3,7 @@ title: Exmple
 subtitle: Agregá capas ocultas a tu red para descubrir relaciones complejas.
 order: 1
 date: 9/15/2025
-portrait:
+coverImage:
 base-image-url:
 ---
 

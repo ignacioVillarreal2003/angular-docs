@@ -1,34 +1,74 @@
 {
   "folders": [
     {
-      "id": "ia",
-      "title": "ia",
+      "id": 8,
+      "title": "Titulo de la carpeta",
+      "description": "Una descripcion no tan larga porque sino se corta",
+      "order": null,
+      "coverImage": "./content/ia/image-1.png",
       "path": "ia",
       "folders": [
         {
-          "id": "books",
-          "title": "books",
-          "path": "ia/books",
+          "id": 6,
+          "title": "deep-learning",
+          "path": "ia/deep-learning",
           "folders": [
             {
-              "id": "1. Aprendizaje automático práctico con Scikit-Learn, Keras y TensorFlow",
-              "title": "1. Aprendizaje automático práctico con Scikit-Learn, Keras y TensorFlow",
-              "path": "ia/books/1. Aprendizaje automático práctico con Scikit-Learn, Keras y TensorFlow",
-              "folders": [],
-              "documents": [
+              "id": 5,
+              "title": "courses",
+              "path": "ia/deep-learning/courses",
+              "folders": [
                 {
-                  "id": "1. El panorama del Machine Learning",
-                  "title": "1. El panorama del Machine Learning",
-                  "subtitle": "",
-                  "path": "ia/books/1. Aprendizaje automático práctico con Scikit-Learn, Keras y TensorFlow/1. El panorama del Machine Learning.md"
+                  "id": 4,
+                  "title": "introduction-to-deep-learning",
+                  "path": "ia/deep-learning/courses/introduction-to-deep-learning",
+                  "folders": [],
+                  "documents": [
+                    {
+                      "id": 1,
+                      "title": "Descenso de Gradiente Estocástico",
+                      "subtitle": "Usá Keras y Tensorflow para entrenar tu primera red neuronal.",
+                      "order": 3,
+                      "date": "9/15/2025",
+                      "path": "ia/deep-learning/courses/introduction-to-deep-learning/descenso-de-gradiente-estocástico.md"
+                    },
+                    {
+                      "id": 2,
+                      "title": "Redes Neuronales Profundas",
+                      "subtitle": "Agregá capas ocultas a tu red para descubrir relaciones complejas.",
+                      "order": 2,
+                      "date": "9/15/2025",
+                      "path": "ia/deep-learning/courses/introduction-to-deep-learning/redes-neuronales-profundas.md"
+                    },
+                    {
+                      "id": 3,
+                      "title": "Una sola neurona",
+                      "subtitle": "Aprendé sobre unidades lineales, los bloques de construcción del deep learning.",
+                      "order": 1,
+                      "date": "9/15/2025",
+                      "path": "ia/deep-learning/courses/introduction-to-deep-learning/una-sola-neurona.md"
+                    }
+                  ]
                 }
-              ]
+              ],
+              "documents": []
             }
           ],
           "documents": []
         }
       ],
-      "documents": []
+      "documents": [
+        {
+          "id": 7,
+          "title": "Exmple",
+          "subtitle": "Agregá capas ocultas a tu red para descubrir relaciones complejas.",
+          "order": 1,
+          "date": "9/15/2025",
+          "coverImage": "",
+          "baseImageUrl": "",
+          "path": "ia/example.md"
+        }
+      ]
     }
   ],
   "documents": []
