@@ -5,7 +5,7 @@
       "description": "Conceptos, arquitecturas y servicios en la nube para almacenamiento, procesamiento y despliegue de aplicaciones.",
       "order": 2,
       "coverImage": "cover-image.png",
-      "urlPath": "Cloud Computing",
+      "path": "Cloud Computing",
       "folders": [],
       "documents": []
     },
@@ -14,7 +14,7 @@
       "description": "Recursos y documentación sobre modelos de Machine Learning, redes neuronales y algoritmos avanzados.",
       "order": 1,
       "coverImage": "cover-image.png",
-      "urlPath": "Inteligencia Artificial",
+      "path": "Inteligencia Artificial",
       "folders": [],
       "documents": [
         {
@@ -22,8 +22,9 @@
           "subtitle": "Agregá capas ocultas a tu red para descubrir relaciones complejas.",
           "order": 1,
           "date": "9/15/2025",
-          "coverImage": "",
-          "urlPath": "Inteligencia Artificial/example.md"
+          "coverImage": "img2.png",
+          "path": "Inteligencia Artificial",
+          "documentName": "example.md"
         }
       ]
     }

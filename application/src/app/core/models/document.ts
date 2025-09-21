@@ -5,6 +5,7 @@ export interface Document {
   order: number | undefined;
   date: string | undefined;
   coverImage: string | undefined;
-  urlPath: string | undefined;
+  path: string | undefined;
+  documentName: string | undefined;
   markdownContent: string | undefined;
 }

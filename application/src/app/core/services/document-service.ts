@@ -25,6 +25,10 @@ export class DocumentService {
               metadata[key.trim()] = rest.join(':').trim();
             });
 
+            const lastSlash = path.lastIndexOf('/');
+            const dirPath = lastSlash !== -1 ? path.substring(0, lastSlash) : '';
+            const fileName = lastSlash !== -1 ? path.substring(lastSlash + 1) : path;
+
             const document: Document = {
               id: Math.random().toString(36).substring(2, 10),
               title: metadata['title'],
@@ -32,7 +36,8 @@ export class DocumentService {
               order: Number(metadata['order']),
               date: metadata['date'],
               coverImage: metadata['coverImage'],
-              urlPath: metadata['urlPath'],
+              path: dirPath,
+              documentName: fileName,
               markdownContent: content,
             };
 

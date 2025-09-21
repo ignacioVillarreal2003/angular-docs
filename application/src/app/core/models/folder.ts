@@ -6,7 +6,7 @@ export interface Folder {
   description: string | undefined;
   order: number | undefined;
   coverImage: string | undefined;
-  urlPath: string | undefined;
+  path: string | undefined;
   folders: Folder[] | undefined;
   documents: Document[] | undefined;
 }

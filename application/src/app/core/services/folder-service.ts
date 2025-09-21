@@ -20,8 +20,8 @@ export class FolderService {
 
         for (const part of parts) {
           currentFolder = currentFolders.find((f) => {
-            if (!f.urlPath) return false;
-            const folderSegment = f.urlPath.split('/').pop();
+            if (!f.path) return false;
+            const folderSegment = f.path.split('/').pop();
             return folderSegment === part;
           });
           if (currentFolder == undefined) {

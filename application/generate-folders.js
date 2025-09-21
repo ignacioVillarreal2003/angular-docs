@@ -26,13 +26,17 @@ function processDocument(fullPath, relativePath) {
   const raw = fs.readFileSync(fullPath, "utf-8");
   const metadata = getMetadata(raw);
 
+  const dirPath = path.dirname(relativePath).replace(/\\/g, "/");
+  const fileName = path.basename(relativePath);
+
   return {
     title: metadata.title,
     subtitle: metadata.subtitle,
     order: metadata.order ? Number(metadata.order) : undefined,
     date: metadata.date,
     coverImage: metadata.coverImage,
-    urlPath: relativePath
+    path: dirPath,
+    documentName: fileName,
   };
 }
 
@@ -55,7 +59,7 @@ function processFolder(dir, relativePath, subTree) {
 
   return {
     ...folderMeta,
-    urlPath: relativePath,
+    path: relativePath,
     folders: subTree.folders,
     documents: subTree.documents
   };
