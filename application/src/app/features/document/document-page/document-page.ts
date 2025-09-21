@@ -21,7 +21,11 @@ export class DocumentPage {
   }
 
   getDataFromMarkdown(): void {
-    const documentPath: string = this.route.snapshot.url[0].path;
+    const segments = this.route.snapshot.url.map((seg) => seg.path);
+    const documentPath = segments.join('/');
+
+    console.log(documentPath);
+
     if (documentPath != undefined) {
       this.documentService.loadDocument(documentPath).subscribe({
         next: (data: Document | undefined): void => {

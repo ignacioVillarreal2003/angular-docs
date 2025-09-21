@@ -1,6 +1,6 @@
 @if (document != undefined) {
 <li class="document-item">
-  <a [routerLink]="['/document', document.path]">
+  <a [routerLink]="['/document', document.path, document.documentName]">
     <div class="cover-image">
       <img src="content/{{ document.path }}/img/{{ document.coverImage }}" />
     </div>
