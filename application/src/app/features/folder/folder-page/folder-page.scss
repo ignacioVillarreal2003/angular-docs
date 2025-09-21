@@ -3,17 +3,41 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding: 20px;
 
-  header {
+  .folder {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 
-    h1 {
-      font-size: 32px;
-      color: black;
+    .folder-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 400px;
+        height: 400px;
+      }
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+
+      h1 {
+        font-size: clamp(26px, 4vw, 36px);
+        color: #2a2a40;
+        font-weight: 400;
+      }
+
+      h2 {
+        font-size: clamp(20px, 3vw, 28px);
+        color: #666666;
+        font-weight: 300;
+      }
     }
   }
-
-
 }

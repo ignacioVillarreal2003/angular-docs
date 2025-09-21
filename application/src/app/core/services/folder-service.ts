@@ -17,7 +17,6 @@ export class FolderService {
         const parts = path.split('/').filter(Boolean);
         let currentFolders = root.folders;
         let currentFolder: Folder | undefined;
-        console.log(parts);
 
         for (const part of parts) {
           currentFolder = currentFolders.find((f) => {
@@ -30,7 +29,6 @@ export class FolderService {
           }
 
           currentFolders = currentFolder.folders || [];
-          console.log(currentFolder);
         }
 
         if (currentFolder != undefined) {

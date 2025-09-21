@@ -1,9 +1,0 @@
-@if (folders != undefined) {
-<section class="folder-list">
-  <ul>
-    @for (folder of folders; track folder.id) {
-    <app-tree-item [folder]="folder"></app-tree-item>
-    }
-  </ul>
-</section>
-}

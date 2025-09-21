@@ -1,11 +1,20 @@
 {
   "folders": [
     {
+      "title": "Cloud Computing",
+      "description": "Conceptos, arquitecturas y servicios en la nube para almacenamiento, procesamiento y despliegue de aplicaciones.",
+      "order": 2,
+      "coverImage": "cover-image.png",
+      "urlPath": "Cloud Computing",
+      "folders": [],
+      "documents": []
+    },
+    {
       "title": "Inteligencia Artificial",
       "description": "Recursos y documentación sobre modelos de Machine Learning, redes neuronales y algoritmos avanzados.",
       "order": 1,
       "coverImage": "cover-image.png",
-      "urlPath": "ia",
+      "urlPath": "Inteligencia Artificial",
       "folders": [],
       "documents": [
         {
@@ -14,7 +23,7 @@
           "order": 1,
           "date": "9/15/2025",
           "coverImage": "",
-          "urlPath": "ia/example.md"
+          "urlPath": "Inteligencia Artificial/example.md"
         }
       ]
     }

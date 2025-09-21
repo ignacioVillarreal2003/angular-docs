@@ -1,11 +1,18 @@
 @if (folder != undefined) {
-  <section class="folder-page">
+<section class="folder-page">
+  <div class="folder">
+    <div class="folder-image">
+      <img src="content/{{ folder.urlPath }}/img/{{ folder.coverImage }}" />
+    </div>
     <header>
       <h1>{{ folder.title }}</h1>
-      <span>asdasd/asdas/dasd/asd asdasdas</span>
+      <h2>{{ folder.description }}</h2>
     </header>
-    <app-folder-list [folders]="folder.folders"></app-folder-list>
-    <app-document-list [documents]="folder.documents"></app-document-list>
-  </section>
-
+  </div>
+  @if (folder.folders != undefined && folder.folders.length > 0) {
+  <app-folder-list [folders]="folder.folders"></app-folder-list>
+  } @if (folder.documents != undefined && folder.documents.length > 0) {
+  <app-document-list [documents]="folder.documents"></app-document-list>
+  }
+</section>
 }

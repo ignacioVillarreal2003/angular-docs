@@ -16,7 +16,22 @@ export class TreePage {
 
   ngOnInit(): void {
     this.treeService.loadTree().subscribe((tree: Tree): void => {
-      this.tree = tree;      
+      this.tree = tree;
+      if (this.tree) {
+        this.tree.folders =
+          this.tree.folders?.slice().sort((a, b) => {
+            const orderA = a.order ?? Infinity;
+            const orderB = b.order ?? Infinity;
+            return orderA - orderB;
+          }) ?? [];
+
+        this.tree.documents =
+          this.tree.documents?.slice().sort((a, b) => {
+            const orderA = a.order ?? Infinity;
+            const orderB = b.order ?? Infinity;
+            return orderA - orderB;
+          }) ?? [];
+      }
     });
   }
 }

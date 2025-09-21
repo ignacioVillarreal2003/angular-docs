@@ -1,33 +1,42 @@
 import { Component } from '@angular/core';
-import {Folder} from '../../../core/models/folder';
-import {ActivatedRoute} from '@angular/router';
-import {FolderService} from '../../../core/services/folder-service';
-import {FolderList} from '../folder-list/folder-list';
-import {DocumentList} from '../document-list/document-list';
+import { Folder } from '../../../core/models/folder';
+import { ActivatedRoute } from '@angular/router';
+import { FolderService } from '../../../core/services/folder-service';
+import { FolderList } from '../folder-list/folder-list';
+import { DocumentList } from '../document-list/document-list';
 
 @Component({
   selector: 'app-folder-page',
-  imports: [
-    FolderList,
-    DocumentList
-  ],
+  imports: [FolderList, DocumentList],
   templateUrl: './folder-page.html',
-  styleUrl: './folder-page.scss'
+  styleUrl: './folder-page.scss',
 })
 export class FolderPage {
   folder: Folder | undefined;
 
-  constructor(private route: ActivatedRoute,
-              private folderService: FolderService) {}
+  constructor(private route: ActivatedRoute, private folderService: FolderService) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {      
-      const path: string | null = params.get('path');      
+    this.route.paramMap.subscribe((params) => {
+      const path: string | null = params.get('path');
       if (path !== null) {
         this.folderService.findFolderByPath(path).subscribe((folder: Folder | undefined): void => {
           this.folder = folder;
-          console.log(folder);
-          
+          if (this.folder) {
+            this.folder.folders =
+              this.folder.folders?.slice().sort((a, b) => {
+                const orderA = a.order ?? Infinity;
+                const orderB = b.order ?? Infinity;
+                return orderA - orderB;
+              }) ?? [];
+
+            this.folder.documents =
+              this.folder.documents?.slice().sort((a, b) => {
+                const orderA = a.order ?? Infinity;
+                const orderB = b.order ?? Infinity;
+                return orderA - orderB;
+              }) ?? [];
+          }
         });
       }
     });
