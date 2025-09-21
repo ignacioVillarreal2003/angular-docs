@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import { Document } from '../../../core/models/document';
 
 @Component({
   selector: 'app-document-header',
@@ -7,7 +8,5 @@ import {Component, Input} from '@angular/core';
   styleUrl: './document-header.scss'
 })
 export class DocumentHeader {
-  @Input() title: string | undefined;
-  @Input() subtitle: string | undefined;
-  @Input() date: string | undefined;
+  @Input() document: Document | undefined;
 }

@@ -1,7 +1,7 @@
 @if (documents != undefined) {
   <section class="document-list">
     <ul>
-      @for (document of documents; track document.id) {
+      @for (document of documents; track document.title) {
         <app-document-item [document]="document"></app-document-item>
       }
     </ul>

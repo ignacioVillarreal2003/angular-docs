@@ -21,11 +21,13 @@ export class FolderPage {
               private folderService: FolderService) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const path: string | null = params.get('path');
+    this.route.paramMap.subscribe(params => {      
+      const path: string | null = params.get('path');      
       if (path !== null) {
         this.folderService.findFolderByPath(path).subscribe((folder: Folder | undefined): void => {
           this.folder = folder;
+          console.log(folder);
+          
         });
       }
     });

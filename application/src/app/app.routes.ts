@@ -1,16 +1,15 @@
 import { Routes } from '@angular/router';
-import { HomePage } from './features/home/home-page/home-page';
 import { FolderPage } from './features/folder/folder-page/folder-page';
-import { folderMatcher } from './core/routing/folder-matcher';
 import { DocumentPage } from './features/document/document-page/document-page';
+import { TreePage } from './features/tree/tree-page/tree-page';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    component: HomePage,
+    path: '',
+    component: TreePage,
   },
   {
-    matcher: folderMatcher,
+    path: 'folder/:path',
     component: FolderPage,
   },
   {
@@ -24,6 +23,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: '',
   },
 ];

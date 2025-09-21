@@ -3,6 +3,7 @@ import { marked } from 'marked';
 import katex from 'katex';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python.js';
+import { Document } from '../../../core/models/document';
 
 @Component({
   selector: 'app-document-content',
@@ -11,12 +12,12 @@ import 'prismjs/components/prism-python.js';
   styleUrl: './document-content.scss'
 })
 export class DocumentContent {
-  @Input() markdownContent: string | undefined;
+  @Input() document: Document | undefined;
   htmlContent: string | undefined;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.markdownContent != undefined && changes['markdownContent']) {
-      this.renderMarkdown(this.markdownContent);
+    if (this.document != undefined && changes['document'] && this.document.markdownContent != undefined) {
+      this.renderMarkdown(this.document.markdownContent);
     }
   }
 

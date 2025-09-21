@@ -1,7 +1,10 @@
 export interface Document {
-  id: string;
-  title: string;
-  subtitle: string;
-  date: string;
-  path: string;
+  id: string | undefined;
+  title: string | undefined;
+  subtitle: string | undefined;
+  order: number | undefined;
+  date: string | undefined;
+  coverImage: string | undefined;
+  urlPath: string | undefined;
+  markdownContent: string | undefined;
 }

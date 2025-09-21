@@ -4,7 +4,7 @@ subtitle: Agregá capas ocultas a tu red para descubrir relaciones complejas.
 order: 1
 date: 9/15/2025
 coverImage:
-base-image-url:
+baseImageUrl:
 ---
 
 # Titulo 1
@@ -45,7 +45,9 @@ $$
 input\_shape = [num\_columns]
 $$
 
-![](./content/ia/image-1.png)
+[[img:image-1.png]]
+Un texto para abajo
+[[/img]]
 
 > Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu.
 
