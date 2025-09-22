@@ -1,8 +1,12 @@
 @if (folder != undefined) {
 <section class="folder-page">
   <div class="folder">
-    <div class="folder-image">
-      <img src="content/{{ folder.path }}/img/{{ folder.coverImage }}" />
+    <div class="folder-image" #folderImage>
+      <img
+        #coverImg
+        src="content/{{ folder.path }}/img/{{ folder.coverImage }}"
+        (load)="onImageLoad(coverImg)"
+      />
     </div>
     <header>
       <h1>{{ folder.title }}</h1>

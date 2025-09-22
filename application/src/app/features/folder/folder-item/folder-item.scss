@@ -11,9 +11,27 @@
     text-decoration: none;
     transition: all 0.3s ease;
 
-    img {
+    .folder-image {
       width: 220px;
       height: 220px;
+      min-width: 220px;
+      min-height: 220px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .folder-image {
+        width: 100%;
+        height: 220px;
+
+        img {
+          width: 220px;
+          height: 220px;
+        }
+      }
     }
 
     .folder-info {
@@ -38,5 +56,22 @@
 
   a:hover {
     background-color: #e7e7ed;
+  }
+}
+
+@media (max-width: 600px) {
+  .folder-item a {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .folder-image {
+    width: 100%;
+    height: 220px;
+
+    img {
+      width: 220px;
+      height: 220px;
+    }
   }
 }

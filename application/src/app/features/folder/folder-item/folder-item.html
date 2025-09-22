@@ -1,7 +1,13 @@
 @if (folder != undefined) {
 <li class="folder-item">
   <a [routerLink]="['/folder', folder.path]">
-    <img src="content/{{folder.path}}/img/{{folder.coverImage}}">
+    <div class="folder-image" #folderImage2>
+      <img
+        #coverImg2
+        src="content/{{ folder.path }}/img/{{ folder.coverImage }}"
+        (load)="onImageLoad(coverImg2)"
+      />
+    </div>
     <div class="folder-info">
       <h1>{{ folder.title }}</h1>
       <h2>{{ folder.description }}</h2>
