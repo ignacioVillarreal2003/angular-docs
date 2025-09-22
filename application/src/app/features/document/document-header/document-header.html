@@ -1,7 +1,16 @@
 @if (document != undefined) {
 <header class="document-header">
-  <h1 class="title">{{ document.title }}</h1>
-  <h2 class="subtitle">{{ document.subtitle }}</h2>
-  <span class="date">{{ document.date }}</span>
+  <div class="cover-image" #documentImage>
+    <img
+      #coverImg3
+      src="content/{{ document.path }}/img/{{ document.coverImage }}"
+      (load)="onImageLoad(coverImg3)"
+    />
+  </div>
+  <div class="content">
+    <h1 class="title">{{ document.title }}</h1>
+    <h2 class="subtitle">{{ document.subtitle }}</h2>
+    <span class="date">{{ document.date }}</span>
+  </div>
 </header>
 }

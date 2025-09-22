@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: var(--background);
   font-family: "IBM Plex Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -16,65 +16,3 @@ body {
     "wdth" 100;
 }
 
-.document-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.document-content h1 {
-  font-size: 2.4rem;
-  font-weight: 500;
-  border-bottom: 2px solid black;
-  padding: 20px;
-}
-
-.document-content h2 {
-  font-size: 2rem;
-  font-weight: 400;
-}
-
-.document-content h3 {
-  font-size: 1.7rem;
-  font-weight: 400;
-}
-
-.document-content h4 {
-  font-size: 1.4rem;
-  font-weight: 300;
-}
-
-.document-content p {
-  font-size: 1rem;
-  font-weight: 300;
-}
-
-.document-content ul {
-  list-style: disc;
-  padding-left: 20px;
-}
-
-.document-content ol {
-  list-style: decimal;
-  padding-left: 20px;
-}
-
-.document-content li {
-  font-size: 1.2rem;
-  font-weight: 300;
-}
-
-.document-content hr {
-  border-width: 2px;
-  background-color: black;
-}
-
-.document-content blockquote {
-  border-left: rgb(47, 47, 218) 4px solid;
-  padding: 10px;
-  background-color: rgba(47, 47, 218, 0.1);
-  p {
-    font-size: 1.2rem;
-    font-weight: 300;
-  }
-}

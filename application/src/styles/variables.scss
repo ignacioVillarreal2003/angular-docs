@@ -1,0 +1,21 @@
+:root {
+  --h1-font-size: clamp(2rem, 6vw, 3rem);
+  --h2-font-size: clamp(1.75rem, 5vw, 2.5rem);
+  --h3-font-size: clamp(1.5rem, 4.5vw, 2.25rem);
+  --h4-font-size: clamp(1.25rem, 4vw, 2rem);
+  --p-font-size: clamp(0.9rem, 3vw, 1.25rem);
+  --color-text: #2a2a40;
+  --background: #ffffff;
+  --card: #f4f4f9;
+  --color-cerulean-blue-50: #ebf5ff;
+  --color-cerulean-blue-100: #dbecff;
+  --color-cerulean-blue-200: #bfdbff;
+  --color-cerulean-blue-300: #98c2ff;
+  --color-cerulean-blue-400: #6f9dff;
+  --color-cerulean-blue-500: #4d78ff;
+  --color-cerulean-blue-600: #2145fd;
+  --color-cerulean-blue-700: #223ee0;
+  --color-cerulean-blue-800: #1f37b4;
+  --color-cerulean-blue-900: #21358e;
+  --color-cerulean-blue-950: #141e52;
+}
