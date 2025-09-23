@@ -1,18 +1,6 @@
 @if (folder != undefined) {
 <section class="folder-page">
-  <div class="folder">
-    <div class="folder-image" #folderImage>
-      <img
-        #coverImg
-        src="content/{{ folder.path }}/img/{{ folder.coverImage }}"
-        (load)="onImageLoad(coverImg)"
-      />
-    </div>
-    <header>
-      <h1>{{ folder.title }}</h1>
-      <h2>{{ folder.description }}</h2>
-    </header>
-  </div>
+  <app-folder-header [folder]="folder"></app-folder-header>
   @if (folder.folders != undefined && folder.folders.length > 0) {
   <app-folder-list [folders]="folder.folders"></app-folder-list>
   } @if (folder.documents != undefined && folder.documents.length > 0) {

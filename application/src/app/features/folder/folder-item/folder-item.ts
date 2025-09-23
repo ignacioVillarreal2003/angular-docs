@@ -1,27 +1,24 @@
 import { Component, Input, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import {Folder} from '../../../core/models/folder';
-import {RouterLink} from '@angular/router';
-import ColorThief from 'colorthief';
+import { Folder } from '../../../core/models/folder';
+import { RouterLink } from '@angular/router';
+import { ColorService } from '../../../core/services/color-service';
 
 @Component({
   selector: 'app-folder-item',
-  imports: [
-    RouterLink
-  ],
+  imports: [RouterLink],
   templateUrl: './folder-item.html',
-  styleUrl: './folder-item.scss'
+  styleUrl: './folder-item.scss',
 })
 export class FolderItem {
   @Input() folder: Folder | undefined;
-
-    @ViewChild('folderImage2', { static: false }) folderImage!: ElementRef<HTMLDivElement>;
+  @ViewChild('folderImage2', { static: false }) folderImage!: ElementRef<HTMLDivElement>;
   @ViewChild('coverImg2', { static: false }) coverImg!: ElementRef<HTMLImageElement>;
 
+  constructor(private colorService: ColorService) {}
+
   onImageLoad(img: HTMLImageElement) {
-    const colorThief = new ColorThief();
-    const color = colorThief.getColor(img);
-    const rgb = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-  
+    const rgb = this.colorService.getColor(img);
+
     if (this.folderImage) {
       this.folderImage.nativeElement.style.backgroundColor = rgb;
     }

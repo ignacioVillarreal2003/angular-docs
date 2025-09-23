@@ -66,4 +66,32 @@
     color: var(--color-text);
     font-weight: 300;
   }
+
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    p {
+      margin-top: 5px;
+      font-size: var(--p-font-size);
+      color: var(--color-text);
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  .card {
+    background-color: #f4f4f9;
+    padding: 30px;
+    border-radius: 6px;
+    font-size: var(--p-font-size);
+    color: var(--color-text);
+    font-weight: 300;
+  }
 }

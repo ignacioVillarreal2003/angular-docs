@@ -1,6 +1,7 @@
 import { Component, Input, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Document } from '../../../core/models/document';
 import ColorThief from 'colorthief';
+import { ColorService } from '../../../core/services/color-service';
 
 @Component({
   selector: 'app-document-header',
@@ -14,11 +15,11 @@ export class DocumentHeader {
   @ViewChild('documentImage', { static: false }) folderImage!: ElementRef<HTMLDivElement>;
   @ViewChild('coverImg3', { static: false }) coverImg!: ElementRef<HTMLImageElement>;
 
+  constructor(private colorService: ColorService) {}
+
   onImageLoad(img: HTMLImageElement) {
-    const colorThief = new ColorThief();
-    const color = colorThief.getColor(img);
-    const rgb = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-  
+    const rgb = this.colorService.getColor(img);
+
     if (this.folderImage) {
       this.folderImage.nativeElement.style.backgroundColor = rgb;
     }

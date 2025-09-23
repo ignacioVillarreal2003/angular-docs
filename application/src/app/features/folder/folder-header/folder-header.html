@@ -1,0 +1,15 @@
+@if (folder != undefined) {
+<header class="folder-header">
+  <div class="folder-image" #folderImage>
+    <img
+      #coverImg
+      src="content/{{ folder.path }}/img/{{ folder.coverImage }}"
+      (load)="onImageLoad(coverImg)"
+    />
+  </div>
+  <div class="content">
+    <h1>{{ folder.title }}</h1>
+    <h2>{{ folder.description }}</h2>
+  </div>
+</header>
+}

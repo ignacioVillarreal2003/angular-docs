@@ -26,46 +26,82 @@ export class DocumentContent {
   }
 
   private renderMarkdown(markdownContent: string): void {
-    markdownContent = this.renderCard(markdownContent);
+    // Primero renderizamos KaTeX porque no es parte de marked
     markdownContent = this.renderKatex(markdownContent);
-    markdownContent = this.renderImage(markdownContent);
 
+    // Renderer de PrismJS
     const renderer = new marked.Renderer();
-
-    renderer.code = function ({
-      text,
-      lang,
-      escaped,
-    }: {
-      text: string;
-      lang?: string;
-      escaped?: boolean;
-    }) {
+    renderer.code = function ({ text, lang }: any) {
       const language = lang?.toLowerCase() || 'javascript';
       const prismLang = Prism.languages[language] || Prism.languages['javascript'];
       const html = Prism.highlight(text, prismLang, language);
       return `<pre class="language-${language}"><code>${html}</code></pre>`;
     };
 
+    // Extensiones custom para imágenes y cards
+    marked.use({
+      extensions: [
+        {
+          name: 'customImage',
+          level: 'inline',
+          start(src: string) {
+            return src.match(/\[\[img:/)?.index;
+          },
+          tokenizer: (src: string) => {
+            const rule = /^\[\[img:(.*?)\]\]([\s\S]*?)\[\[\/img\]\]/;
+            const match = rule.exec(src);
+            if (match) {
+              return {
+                type: 'customImage',
+                raw: match[0],
+                url: match[1].trim(),
+                text: match[2].trim(),
+              };
+            }
+            return undefined;
+          },
+          renderer: (token: any) => {
+            return `
+              <div class="image-container">
+                <img src="content/${this.document?.path}/img/${token.url}" alt="">
+                <p>${token.text}</p>
+              </div>
+            `;
+          },
+        },
+        {
+          name: 'customCard',
+          level: 'block',
+          start(src: string) {
+            return src.match(/\[\[card\]\]/)?.index;
+          },
+          tokenizer: (src: string) => {
+            const rule = /^\[\[card\]\]([\s\S]*?)\[\[\/card\]\]/;
+            const match = rule.exec(src);
+            if (match) {
+              return {
+                type: 'customCard',
+                raw: match[0],
+                text: match[1].trim(),
+              };
+            }
+            return undefined;
+          },
+          renderer: (token: any) => {
+            return `<div class="card">${token.text}</div>`;
+          },
+        },
+      ],
+    });
+
     this.htmlContent = marked.parse(markdownContent, {
-      renderer: renderer,
+      renderer,
       gfm: true,
       breaks: true,
     }) as string;
   }
 
-  renderCard(markdownContent: string): string {
-    markdownContent = markdownContent.replace(
-      /\[\[card\]\]([\s\S]*?)\[\[\/card\]\]/g,
-      (_, inner) => {
-        return `<div class="card">${inner.trim()}</div>`;
-      }
-    );
-
-    return markdownContent;
-  }
-
-  renderKatex(markdownContent: string): string {
+  private renderKatex(markdownContent: string): string {
     markdownContent = markdownContent.replace(/\$\$(.*?)\$\$/gs, (_, expr) =>
       katex.renderToString(expr, { throwOnError: false, displayMode: true })
     );
@@ -74,24 +110,6 @@ export class DocumentContent {
       katex.renderToString(expr, { throwOnError: false, displayMode: false })
     );
 
-    return markdownContent;
-  }
-
-  renderImage(markdownContent: string): string {
-    markdownContent = markdownContent.replace(
-      /\[\[img:(.*?)\]\]\s*([\s\S]*?)\[\[\/img\]\]/g,
-      (match, imageUrl, text) => {
-        const cleanText = text.trim();
-        return `
-        <div class="image-container">
-          <img src="content/${this.document?.path}/img/${imageUrl}" alt="">
-          <p>${cleanText}</p>
-        </div>
-      `;
-      }
-    );
-    console.log(markdownContent);
-    
     return markdownContent;
   }
 }
