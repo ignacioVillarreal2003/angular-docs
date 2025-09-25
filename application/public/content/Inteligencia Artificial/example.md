@@ -60,3 +60,13 @@ Un texto para abajo
 [[card]]
 Recordá normalizar los datos antes de entrenar la red.
 [[/card]]
+
+> ### Título dentro de cita
+>
+> - Punto 1
+> - Punto 2
+>
+> Código:
+> ```js
+> console.log("Hola");
+> ```

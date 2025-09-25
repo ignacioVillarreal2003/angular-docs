@@ -25,80 +25,87 @@ export class DocumentContent {
     }
   }
 
-  private renderMarkdown(markdownContent: string): void {
-    markdownContent = this.renderKatex(markdownContent);
+private renderMarkdown(markdownContent: string): void {
+  // Primero KaTeX
+  markdownContent = this.renderKatex(markdownContent);
 
-    // Renderer de PrismJS
-    const renderer = new marked.Renderer();
-    renderer.code = function ({ text, lang }: any) {
-      const language = lang?.toLowerCase() || 'javascript';
-      const prismLang = Prism.languages[language] || Prism.languages['javascript'];
-      const html = Prism.highlight(text, prismLang, language);
-      return `<pre class="language-${language}"><code>${html}</code></pre>`;
-    };
+  const docPath = this.document?.path ?? '';
 
-    // Extensiones custom para imágenes y cards
-    marked.use({
-      extensions: [
-        {
-          name: 'customImage',
-          level: 'inline',
-          start(src: string) {
-            return src.match(/\[\[img:/)?.index;
-          },
-          tokenizer: (src: string) => {
-            const rule = /^\[\[img:(.*?)\]\]([\s\S]*?)\[\[\/img\]\]/;
-            const match = rule.exec(src);
-            if (match) {
-              return {
-                type: 'customImage',
-                raw: match[0],
-                url: match[1].trim(),
-                text: match[2].trim(),
-              };
-            }
-            return undefined;
-          },
-          renderer: (token: any) => {
-            return `
-              <div class="image-container">
-                <img src="content/${this.document?.path}/img/${token.url}" alt="">
-                <p>${token.text}</p>
-              </div>
-            `;
-          },
+  const renderer = new marked.Renderer();
+  renderer.code = function ({ text, lang }: any) {
+    const language = (lang || 'javascript').toLowerCase();
+    const prismLang = Prism.languages[language] || Prism.languages['javascript'];
+    const html = Prism.highlight(text, prismLang, language);
+    return `<pre class="language-${language}"><code>${html}</code></pre>`;
+  };
+
+  marked.use({
+    extensions: [
+      {
+        name: 'customImage',
+        level: 'block',
+        start(src: string) {
+          return src.match(/\[\[img:/)?.index;
         },
-        {
-          name: 'customCard',
-          level: 'block',
-          start(src: string) {
-            return src.match(/\[\[card\]\]/)?.index;
-          },
-          tokenizer: (src: string) => {
-            const rule = /^\[\[card\]\]([\s\S]*?)\[\[\/card\]\]/;
-            const match = rule.exec(src);
-            if (match) {
-              return {
-                type: 'customCard',
-                raw: match[0],
-                text: match[1].trim(),
-              };
-            }
-            return undefined;
-          },
-          renderer: (token: any) => {
-            return `<div class="card">${token.text}</div>`;
-          },
+        tokenizer(src: string) {
+          const rule = /^\[\[img:(.*?)\]\]([\s\S]*?)\[\[\/img\]\]/;
+          const match = rule.exec(src);
+          if (match) {
+            const inner = match[2].trim();
+            return {
+              type: 'customImage',
+              raw: match[0],
+              url: match[1].trim(),
+              tokens: marked.lexer(inner, { gfm: true }),
+            };
+          }
+          return undefined;
         },
-      ],
-    });
+        renderer(token: any) {
+          const captionHtml = marked.parser(token.tokens, { gfm: true });
+          return `
+            <div class="image-container">
+              <img src="content/${docPath}/img/${token.url}" alt="">
+              <p>${captionHtml}</p>
+            </div>
+          `;
+        },
+      },
+      {
+        name: 'customCard',
+        level: 'block',
+        start(src: string) {
+          return src.match(/\[\[card\]\]/)?.index;
+        },
+        tokenizer(src: string) {
+          const rule = /^\[\[card\]\]([\s\S]*?)\[\[\/card\]\]/;
+          const match = rule.exec(src);
+          if (match) {
+            const inner = match[1].trim();
+            return {
+              type: 'customCard',
+              raw: match[0],
+              tokens: marked.lexer(inner, { gfm: true }),
+            };
+          }
+          return undefined;
+        },
+        renderer(token: any) {
+          const innerHtml = marked.parser(token.tokens, { gfm: true });
+          return `<div class="card">${innerHtml}</div>`;
+        },
+      },
+    ],
+  });
 
-    this.htmlContent = marked.parse(markdownContent, {
-      renderer,
-      gfm: true,
-      breaks: true,
-    }) as string;
-  }
+  // 👇 ESTA LÍNEA FALTABA
+  this.htmlContent = marked.parse(markdownContent, {
+    renderer,
+    gfm: true,
+    breaks: true,
+  }) as string;
+}
+
 
   private renderKatex(markdownContent: string): string {
     markdownContent = markdownContent.replace(/\$\$(.*?)\$\$/gs, (_, expr) =>
