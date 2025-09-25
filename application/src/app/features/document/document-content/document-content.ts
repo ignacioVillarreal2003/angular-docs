@@ -85,13 +85,13 @@ private renderMarkdown(markdownContent: string): void {
             return {
               type: 'customCard',
               raw: match[0],
-              tokens: marked.lexer(inner, { gfm: true }),
+              text: match[1].trim(),
             };
           }
           return undefined;
         },
         renderer(token: any) {
-          const innerHtml = marked.parser(token.tokens, { gfm: true });
+const innerHtml = marked.parse(token.text, { gfm: true });
           return `<div class="card">${innerHtml}</div>`;
         },
       },
