@@ -26,7 +26,6 @@
           "documents": [
             {
               "title": "El panorama del Machine Learning",
-              "subtitle": "Explora los conceptos fundamentales del Machine Learning, desde sus tipos de aprendizaje hasta los desafíos clave en su implementación.",
               "order": 1,
               "date": "24/09/2025",
               "coverImage": "cover-image-1.png",

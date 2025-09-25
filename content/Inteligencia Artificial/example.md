@@ -6,6 +6,20 @@ date: 9/15/2025
 coverImage: img2.png
 ---
 
+[[card]]
+## La efectividad irrazonable de los datos
+
+En un famoso artículo publicado en 2001, los investigadores de Microsoft Michele Banko y Eric Brill demostraron que algoritmos de Machine Learning muy diferentes, incluyendo algunos bastante simples, obtenían un rendimiento casi idéntico en un problema complejo de desambiguación de lenguaje natural una vez que se les proporcionaba suficiente cantidad de datos (como se puede ver en la Figura 1-20).
+
+[[img:1.19.png]]
+Figura 1-20. La importancia de los datos frente a los algoritmos
+[[/img]]
+
+Como lo expresaron los autores: “estos resultados sugieren que quizá queramos reconsiderar la compensación entre gastar tiempo y dinero en el desarrollo de algoritmos versus gastarlo en el desarrollo de corpus”.
+
+La idea de que los datos importan más que los algoritmos para problemas complejos fue aún más popularizada por Peter Norvig et al. en un artículo titulado “[The Unreasonable Effectiveness of Data](https://static.googleusercontent.com/media/research.google.com/es//pubs/archive/35179.pdf)” publicado en 2009\. Sin embargo, cabe señalar que los conjuntos de datos pequeños y medianos siguen siendo muy comunes, y no siempre es fácil o barato obtener datos de entrenamiento adicionales, así que no abandones los algoritmos todavía.
+[[/card]]
+
 # Titulo 1
 
 ## Titulo 2
