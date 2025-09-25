@@ -15,7 +15,27 @@
       "order": 1,
       "coverImage": "cover-image.png",
       "path": "Inteligencia Artificial",
-      "folders": [],
+      "folders": [
+        {
+          "title": "Libros",
+          "description": "Recursos para comprender y dominar los principios y usos prácticos de la Inteligencia Artificial.",
+          "order": 1,
+          "coverImage": "cover-image.png",
+          "path": "Inteligencia Artificial/Libros",
+          "folders": [],
+          "documents": [
+            {
+              "title": "El panorama del Machine Learning",
+              "subtitle": "Explora los conceptos fundamentales del Machine Learning, desde sus tipos de aprendizaje hasta los desafíos clave en su implementación.",
+              "order": 1,
+              "date": "24/09/2025",
+              "coverImage": "cover-image-1.png",
+              "path": "Inteligencia Artificial/Libros",
+              "documentName": "1. El panorama del Machine Learning.md"
+            }
+          ]
+        }
+      ],
       "documents": [
         {
           "title": "Exmple",
