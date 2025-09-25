@@ -26,7 +26,6 @@ export class DocumentContent {
   }
 
   private renderMarkdown(markdownContent: string): void {
-    // Primero renderizamos KaTeX porque no es parte de marked
     markdownContent = this.renderKatex(markdownContent);
 
     // Renderer de PrismJS
